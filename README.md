@@ -163,8 +163,8 @@ public class ServiceGenerator {
                     public Response intercept(Chain chain) throws IOException {
                         PrefBase pref = new PrefBase(context);
 
-                        // tempcode 로그인 적용한 후에 밑에 두줄 삭제해야 함
-                        // pref.put(PrefBase.ACCESS_TOKEN, "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjVkNDhlMWEyMWQ1NDExNDg3OTA0NzI0NTRkM2U3NWFmODExMDc3ZWRkY2NlZWVlMmFmM2YwZmRmMTE4YzY3ZjAzNzM0ZWRjOTA5MTJlZjg3In0.eyJhdWQiOiIyIiwianRpIjoiNWQ0OGUxYTIxZDU0MTE0ODc5MDQ3MjQ1NGQzZTc1YWY4MTEwNzdlZGRjY2VlZWUyYWYzZjBmZGYxMThjNjdmMDM3MzRlZGM5MDkxMmVmODciLCJpYXQiOjE1MjE1MzI3NDUsIm5iZiI6MTUyMTUzMjc0NSwiZXhwIjoxNTIxNjE5MTQ1LCJzdWIiOiIxMSIsInNjb3BlcyI6WyIqIl19.fEhUoDJ7dG1cHY3-AeWivA-b4lQLCD6rVkGiHb6kwV4M2SjTMlqTA3uFP7QUhaptGu9rM16oBG59AnYqktqKnsLA8Oe2m17serwKq0_gK4b9B_ifi9_zYogu3viNaBUy7Vr7kZEOwsays_a1e-ZoUfrusQXg6xHL0ufLXgpgNtbTaBvrITV_wB4P75k5adUVeOcf5IeF1n1JcZixhhHM0EWkZECY-xRgg5nx32VLQ2frAumgPrLcvkg3KCPAdrpszXlV8ZMvqbmWYjxxVItQAf5J9ZlcvbjuGZHqDdbmohIK5KfvDulTlt5oAmexmUZIU8H6Pkn5MHB3Grr7PuScx43ljKZOxDZfJIualzTsU07OwWqtGH93SRQ6bjc3qt8fGzrlsNat3ocwk5M213T_T7kU4QPelA6F-92QcvLLQxpvc0KCyms9DcNF0TFO8Bfdwbn9MctVa7QR_8kVz8KFDrNYjDxro6pC5pPUbRG4MC1mFXVZEPwq-x0UPZ0_A-Lx7YHpqGJbTnbFBe2wE0Z0roXZJuIm26xmtaeBxaB6yFue8lnMh73RgoLj5te-3ZzYEOMgFgV2RDAmu53YAL7qWT-WK9rN2oGPad3af84VwVKGpNuKG3W38QMU9fKAJnXDnAPL2vjL6sRKIQpcdBpccEXLZVeCqTIIQbf45kk5dXM");
+                        // tempcode 
+                        // pref.put(PrefBase.ACCESS_TOKEN, "eyJ0eX"");
                         Lggr.d("ACCESS_TOKEN: "+pref.getValue(PrefBase.ACCESS_TOKEN, ""));
 
                         Request original = chain.request();
@@ -188,23 +188,22 @@ public class ServiceGenerator {
 }
 
 public interface AlbatrossService {
-    //*request change addr*/
+   
     @PUT("v2/beanpop-event-winnings/{seq}/request")
-    Call<ResponseBody> changeaddr(@Path("seq") int seq);
-    /*get china provinces*/
-    @GET("countries/1/provinces")
-    Call<ResponseBody> getSheng();
-    @GET("countries/1/provinces/{s}/cities")
-    Call<ResponseBody> getCity(@Path("s") int shengCody);
-    @GET("countries/1/provinces/{s}/cities/{city}/areas")
-    Call<ResponseBody> getAreas(@Path("s") int shengCode,@Path("city") int cityCode);
-
-    /*set default addr*/
-    @PUT("v2/user-shipping-addresses/{seq}/default")
-    Call<ResponseBody> setdefaultAddr(@Path("seq") int seq);
-
-    /*updater addr*/
     
+    Call<ResponseBody> changeaddr(@Path("seq") int seq);
+   
+    @GET("countries/1/provinces")
+    
+    Call<ResponseBody> getSheng();
+    
+    @GET("countries/1/provinces/{s}/cities")
+    
+    Call<ResponseBody> getCity(@Path("s") int shengCody);
+    
+    @GET("countries/1/provinces/{s}/cities/{city}/areas")
+    
+    Call<ResponseBody> getAreas(@Path("s") int shengCode,@Path("city") int cityCode);
     
     注意:service放在baseactivity/basefragment中就可以,或者在创建出来
 
