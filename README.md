@@ -46,10 +46,10 @@ import retrofit2.Response;
  * Author Administrator
  * Mail sgu_lind@163.com
  */
-
-public class HttpUtils {
+ 
+public class HttpUtils
+{
     Call<ResponseBody> call;
-
     @SuppressLint("LongLogTag")
     public void getDateFromService(final PViews pViews, Call<ResponseBody> call, final int requestCode) {
         this.call = call;
@@ -146,8 +146,8 @@ public class HttpUtils {
 
 3:data处理(根据个人需求进行配置)
 
-public class ServiceGenerator {
-
+public class ServiceGenerator 
+{
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
     private static Retrofit.Builder builder =
@@ -208,7 +208,7 @@ public interface AlbatrossService {
     
     
     调用示例:
-    baseactivity中:
+    BaseActivity中:
     AlbatrossService service = ServiceGenerator.createService(AlbatrossService.class, getApplicationContext());
     
     activity中:
