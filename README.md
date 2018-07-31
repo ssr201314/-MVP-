@@ -48,7 +48,6 @@ import retrofit2.Response;
  */
 
 public class HttpUtils {
-    //      AlbatrossService service = ServiceGenerator.createService(AlbatrossService.class, getApplicationContext());
     Call<ResponseBody> call;
 
     @SuppressLint("LongLogTag")
@@ -206,6 +205,25 @@ public interface AlbatrossService {
     Call<ResponseBody> getAreas(@Path("s") int shengCode,@Path("city") int cityCode);
     
     注意:service放在baseactivity/basefragment中就可以,或者在创建出来
+    
+    
+    调用示例:
+    baseactivity中:
+    AlbatrossService service = ServiceGenerator.createService(AlbatrossService.class, getApplicationContext());
+    
+    activity中:
+    public class PrizedetailActivity extends BaseActivity implements PViews {}..........
+     mHttpUtils = new HttpUtils();
+     mHttpUtils.getDateFromService(this, service.getactivitywindetail(), 0);
+     
+     
+     回调:
+     重写这三个方法:
+     public void onLoadOk( Response<ResponseBody> response,int requestCode) ;
+     public void onError(Exception e,int requestCode);
+     public void onFaild(Throwable t,int requestCode);
+    
+    
 
 
 
